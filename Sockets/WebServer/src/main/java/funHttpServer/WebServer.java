@@ -248,10 +248,11 @@ class WebServer {
           builder.append("\n");
           builder.append("Check the todos mentioned in the Java source file");
 
-          JSONObject obj = new JSONObject(json);
-          JSONArray arr = obj.getJSONArray("repos");
-          for(int i=0; i< arr.length(); i++) {
-            builder.append(arr.getJSONObject(i).getString("RepoName"));
+          JSONArray repoArray = new JSONArray(json);
+          for(int i=0; i<repoArray.lenght(); i++) {
+            JSONObject repo = repoArray.getSSONObject(i);
+            String repoName = repo.getString("name");
+            builder.append(repoName + "\n");
           }
 
           // TODO: Parse the JSON returned by your fetch and create an appropriate
