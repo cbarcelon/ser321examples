@@ -249,7 +249,7 @@ class WebServer {
           builder.append("Check the todos mentioned in the Java source file");
 
           JSONArray repoArray = new JSONArray(json);
-          for(int i=0; i<repoArray.lenght(); i++) {
+          for(int i=0; i<repoArray.length(); i++) {
             JSONObject repo = repoArray.getJSONObject(i);
             String repoName = repo.getString("name");
             builder.append(repoName + "\n");
