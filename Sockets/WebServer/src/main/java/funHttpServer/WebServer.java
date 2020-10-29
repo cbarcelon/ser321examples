@@ -220,7 +220,7 @@ class WebServer {
             builder.append("HTTP/1.1 400 Bad Request\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            builder.append("I am not sure what you want me to do...");
+            builder.append("The multiply command requires num1 and num2 to be integers \n Please Try again!");
           }
 
 
