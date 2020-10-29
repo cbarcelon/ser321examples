@@ -17,6 +17,7 @@ write a response back
 package funHttpServer;
 
 import java.io.*;
+import org.Json.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,8 @@ import java.util.Random;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.nio.charset.Charset;
+
+
 
 class WebServer {
   public static void main(String args[]) {
@@ -240,11 +243,17 @@ class WebServer {
           query_pairs = splitQuery(request.replace("github?", ""));
           String json = fetchURL("https://api.github.com/" + query_pairs.get("query"));
           System.out.println(json);
-
-          builder.append("HTTP/1.1 400 Bad Request\n");
+          builder.append("HTTP/1.1 200 Ok\n");
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
           builder.append("Check the todos mentioned in the Java source file");
+
+          JSONObject obj = new JSONObject(json);
+          JSONArray arr = obj.getJSONArray("repos");
+          for(int i=0; i< arr.length(); i++) {
+            builder.append(arr.getJSONObject(i).getString("RepoName"));
+          }
+
           // TODO: Parse the JSON returned by your fetch and create an appropriate
           // response
           // and list the owner name, owner id and name of the public repo on your webpage, e.g.
