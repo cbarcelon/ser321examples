@@ -246,7 +246,7 @@ class WebServer {
           builder.append("HTTP/1.1 200 Ok\n");
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
-          builder.append("Check the todos mentioned in the Java source file");
+          //builder.append("Check the todos mentioned in the Java source file");
           builder.append("\n");
           builder.append("<br>");
 
