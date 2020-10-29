@@ -250,7 +250,7 @@ class WebServer {
 
           JSONArray repoArray = new JSONArray(json);
           for(int i=0; i<repoArray.lenght(); i++) {
-            JSONObject repo = repoArray.getSSONObject(i);
+            JSONObject repo = repoArray.getJSONObject(i);
             String repoName = repo.getString("name");
             builder.append(repoName + "\n");
           }
