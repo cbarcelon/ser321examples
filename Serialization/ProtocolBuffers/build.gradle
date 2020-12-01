@@ -75,6 +75,6 @@ task runClientPython(type:Exec) {
 
    workingDir 'src/main/python'
    
-   commandLine 'python3', 'SocketClient.py', host, port, file
+   commandLine 'python', 'SocketClient.py', host, port, file
 } 
 
